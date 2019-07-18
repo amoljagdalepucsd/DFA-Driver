@@ -27,14 +27,12 @@ int dfaExecution(struct dfaDriver dfa)
 {
   	fgets(str,MAXSIZE,stdin);
 	
-	printf("\n");
-	//printf("%s",str);
-
- 	fprintf(stdout,"This is Your string\n");
+	fprintf(stdout,"\n");
+	
+	fprintf(stdout,"This is Your string\n");
  	
 	fprintf(stdout,"%s\n",str);
- 	//fprintf(stdout,"%ld\n",strlen(str));
-	
+ 	
 	length = strlen(str) - 1;
 	for(i = 0; i < length; i++)
 		if(isalpha(str[i]) == 0 )
@@ -45,7 +43,7 @@ int dfaExecution(struct dfaDriver dfa)
 	currstate = startstate;
 	
 	i = 0;	
-	while(i <= length)
+	while(i < length)
 	{
 		c = str[i];
 		endstate = c - 'a'; 	
@@ -73,7 +71,7 @@ int dfaExecution(struct dfaDriver dfa)
 
 void displayDfaDetails(struct dfaDriver dfa)
 {
-	fprintf(stdout,"Dispaly The Dfa Details\n");
+	fprintf(stdout,"*****------Dispaly The Dfa Details-----******\n\n");
 
 	fprintf(stdout,"Number ofd states is : %d\n",dfa.states);
 	
@@ -162,9 +160,12 @@ void acceptDfaDetails()
 			exit(0);
 		}
 	
-	displayDfaDetails(dfa);
-	
 	dfaExecution(dfa);
+	
+	fprintf(stdout,"\n");
+	
+	displayDfaDetails(dfa);
+		
 }
 
 int main(void)
